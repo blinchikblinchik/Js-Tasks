@@ -156,13 +156,15 @@ console.log(filterWords(words))
 Отсортируйте массив массивов так, чтобы вначале располагались наименьшие массивы (размер массива определяется его длиной): [ [14, 45], [1], ['a', 'c', 'd'] ] → [ [1], [14, 45], ['a', 'c', 'd'] ]
 ПОДСКАЗКА. Для правильной сортировки метод sort принимает функцию, параметры которой a и b - это элементы массива. В данной задаче элементы массива, то есть параметры a и b, сами являются массивами и обладают всеми свойствами массивов.*/
 const arr1 = [[14, 45], [1], ['a', 'c', 'd']];
-const arr2 = [[1], [14, 45], ['a', 'c', 'd']];
-const sortArrays = (a, b) => {
-    sortArrays.sort(function (a, b) {
-        return a - b
+const arr2 = [[1], [14, 45, 'c'], ['a',  'd']];
+const sortArrays = (array) => {
+  let result =  array.sort(function (a, b) {
+        return a.length - b.length
     })
+    return result
 }
-console.log(arr1, arr2)
+console.log(sortArrays(arr1))
+console.log(sortArrays(arr2))
 
 /*Задание 11
 Создайте функцию getAverageHumanAge, которая принимает массив возрастов кошек (catAges) и выполняет следующие действия по порядку:
@@ -189,7 +191,7 @@ const getAverageHumanAge = (catAges) => {
 
     })
     let middleAge = filterForCats.reduce(function (acc, item) {
-        return  acc + item/ 8
+        return  acc + item/ filterForCats.length
     }, 0)
     return middleAge
 }
