@@ -51,6 +51,12 @@ form.addEventListener('submit', function (event) {
     div.innerText = result
 })
 
+form.addEventListener('submit', function (event) {
+    event.preventDefault()
+    result = eval(`${+num1.value} ${select.value} ${+num2.value}`)
+    div.innerText = result 
+})
+
 /*Задание 5
 Вставить в разметку html тег button без js (просто предусмотреть в разметке). При наведении на кнопку изменять ее цвет каждый раз рандомным цветом. При выведении мышки за пределы кнопки поворачивать кнопку на рандомный угол от -180 до 180 градусов. Использовать обработку событий mouseenter, mouseleave на этой кнопке.*/
 const button = document.querySelector('button')
